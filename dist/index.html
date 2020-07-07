@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  <h1 class="primary"> Hui</h1>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="weather">
+          <div class="current">
+            <div class="info">
+              <div>&nbsp;</div>
+              <div class="city"><small><small>CITY:</small></small> London</div>
+              <div class="temp">67&deg; <small>F</small></div>
+              <div class="wind"><small><small>WIND:</small></small> 22 km/h</div>
+              <div>&nbsp;</div>
+            </div>
+            <div class="icon">
+              <span class="wi-day-sunny"></span>
+            </div>
+          </div>
+          <div class="future">
+            <div class="day">
+              <h3>Mon</h3>
+            </div>
+          </div>
+        </div>
+        <div class="bs-example w-100 pt-3">
+          <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+              <label class="btn btn-primary active w-50">
+                  <input type="checkbox" name="options" autocomplete="off" checked> Celcius
+              </label>
+              <label class="btn btn-primary active w-50">
+                  <input type="checkbox" name="options" autocomplete="off" checked> Fahrenheit
+              </label>
+          </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
   <script src="main.js"></script>
 </body>
+
 </html>

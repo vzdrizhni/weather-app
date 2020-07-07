@@ -1,5 +1,5 @@
 class GetLocalWeatherData {
-  getPosition = (opts) => {
+  getPosition = () => {
     const promise = new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition((success) => {
         resolve(success);
@@ -20,7 +20,7 @@ class GetLocalWeatherData {
     return fetch(url, {
       method: 'GET'
     }).then( response => {
-      return response.json;
+      return response.json();
     });
   }
 }
