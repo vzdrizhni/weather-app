@@ -90,7 +90,7 @@ To have this app on your pc, you need to:
 
 ## Live Demo
 
-[Live Demo](https://raw.githack.com/vzdrizhni/weather-app/feature/basic_setup/dist/index.html) :point_left:
+[Live Demo](https://raw.githack.com/vzdrizhni/weather-app/feature/feature_branch/dist/index.html) :point_left:
 
 <!-- CONTACT -->
 ## Contributors
