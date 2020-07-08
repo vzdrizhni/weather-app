@@ -1,7 +1,7 @@
 import { formatDistance, subDays, fromUnixTime } from 'date-fns'
 import { format } from 'date-fns'
-
 import GetLocalWeather from './getWeatherData'
+import DataFromInput from './weatherDatafromInput'
 
 
 class RenderWeather {
@@ -12,8 +12,8 @@ class RenderWeather {
     return weatherResult;
   }
 
-  async render () {
-    const weatherDataResult = await this.getData();
+  async render (parameter) {
+    const weatherDataResult = await parameter;
     const switchWeather = document.querySelector('.btn-group')
     const temp = document.querySelector('.temp');
 
