@@ -1,5 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 
+.container {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
 .weather {
   display: flex;
   flex-flow: column wrap;
@@ -10,11 +15,11 @@
 .weather .current {
   display: flex;
   flex-flow: row wrap;
-  background-image: url("/Content/images/shared/misc/london-view.png");
-  background-repeat: repeat-x;
   color: white;
   padding: 20px;
   text-shadow: 1px 1px #F68D2E;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
 .weather .current .info {
@@ -50,12 +55,7 @@
 .weather .future .day {
   flex-grow: 1;
   text-align: center;
-  cursor: pointer;
   font-size: 26px;
-  color: #F68D2E;
-}
-
-.weather .future .day:hover {
   color: #fff;
   background-color: #F68D2E;
 }

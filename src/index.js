@@ -6,7 +6,6 @@ import DataFromInput from './weatherDatafromInput'
 
 const weather = new RenderWeather();
 const input = new DataFromInput();
-// console.log(weather.weatherData());
 weather.render(weather.getData());
 input.formData();
 

@@ -1,7 +1,6 @@
 import { formatDistance, subDays, fromUnixTime } from 'date-fns'
 import { format } from 'date-fns'
 import GetLocalWeather from './getWeatherData'
-import DataFromInput from './weatherDatafromInput'
 
 
 class RenderWeather {
@@ -14,8 +13,17 @@ class RenderWeather {
 
   async render (parameter) {
     const weatherDataResult = await parameter;
+
     const switchWeather = document.querySelector('.btn-group')
     const temp = document.querySelector('.temp');
+    const gif = await this.weatherData.getGif(weatherDataResult.weather[0].description)
+    const countryGif = await this.weatherData.getGif(weatherDataResult.sys.country)
+
+    const cont = document.querySelector('.container');
+    const country = document.querySelector('.current');
+
+    cont.style.background = `url('${gif}')`;
+    country.style.background = `url('${countryGif}')`;
 
     this.renderCity(weatherDataResult);
     temp.innerHTML = this.renderTempCel(weatherDataResult);
@@ -65,7 +73,7 @@ class RenderWeather {
 
   renderDate (result) {
     const date = document.querySelector('.day');
-    const dateResult = format(fromUnixTime(result.dt), 'EEEE d');
+    const dateResult = format(fromUnixTime(result.dt), 'EEEE d MMM');
     date.textContent = dateResult;
   }
 }
