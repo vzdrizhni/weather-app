@@ -1,0 +1,69 @@
+@import "~bootstrap/scss/bootstrap";
+
+.container {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.weather {
+  display: flex;
+  flex-flow: column wrap;
+  box-shadow: 0 1px 10px 0 #cfcfcf;
+  overflow: hidden;
+}
+
+.weather .current {
+  display: flex;
+  flex-flow: row wrap;
+  color: white;
+  padding: 20px;
+  text-shadow: 1px 1px #f68d2e;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.weather .current .info {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  flex-grow: 2;
+}
+
+.weather .current .info .city {
+  font-size: 26px;
+}
+
+.weather .current .info .temp {
+  font-size: 56px;
+}
+
+.weather .current .info .wind {
+  font-size: 24px;
+}
+
+.weather .current .icon {
+  text-align: center;
+  font-size: 64px;
+  flex-grow: 1;
+}
+
+.weather .future {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.weather .future .day {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 26px;
+  color: #fff;
+  background-color: #f68d2e;
+}
+
+.weather .future .day h3 {
+  text-transform: uppercase;
+}
+
+.weather .future .day p {
+  font-size: 28px;
+}
