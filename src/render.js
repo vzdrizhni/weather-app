@@ -1,23 +1,25 @@
-import { formatDistance, subDays, fromUnixTime } from 'date-fns'
-import { format } from 'date-fns'
-import GetLocalWeather from './getWeatherData'
+import {
+  fromUnixTime, format,
+} from 'date-fns';
+
+import GetLocalWeather from './getWeatherData';
 
 
 class RenderWeather {
   weatherData = new GetLocalWeather();
 
-  getData () {
+  getData() {
     const weatherResult = this.weatherData.weatherData();
     return weatherResult;
   }
 
-  async render (parameter) {
+  async render(parameter) {
     const weatherDataResult = await parameter;
 
-    const switchWeather = document.querySelector('.btn-group')
+    const switchWeather = document.querySelector('.btn-group');
     const temp = document.querySelector('.temp');
-    const gif = await this.weatherData.getGif(weatherDataResult.weather[0].description)
-    const countryGif = await this.weatherData.getGif(weatherDataResult.sys.country)
+    const gif = await this.weatherData.getGif(weatherDataResult.weather[0].description);
+    const countryGif = await this.weatherData.getGif(weatherDataResult.sys.country);
 
     const cont = document.querySelector('.container');
     const country = document.querySelector('.current');
@@ -37,45 +39,44 @@ class RenderWeather {
       } else if (event.target.classList.contains('fahrenheit')) {
         temp.innerHTML = this.renderTempFah(weatherDataResult);
       }
-    })
+    });
   }
 
-  renderCity (result) {
+  renderCity(result) { // eslint-disable-line class-methods-use-this
     const city = document.querySelector('.city');
     const weatherResultName = result.name;
     city.textContent = weatherResultName;
   }
 
-  renderTempCel (result) {
-    // const temp = document.querySelector('.temp');
-    const tempResult =  result.main.temp;
-    const temp = Math.round(parseFloat(tempResult)-273.15) + 'C' + '&deg;';
+  renderTempCel(result) { // eslint-disable-line class-methods-use-this
+    const tempResult = result.main.temp;
+    const temp = `${Math.round(parseFloat(tempResult) - 273.15)}C` + '&deg;'; // eslint-disable-line no-useless-concat
     return temp;
   }
 
-  renderTempFah (result) {
-    const tempResult =  result.main.temp;
-    const temp = Math.round(((parseFloat(tempResult)-273.15)*1.8)+32) + 'F' + '&deg;';
+  renderTempFah(result) { // eslint-disable-line class-methods-use-this
+    const tempResult = result.main.temp;
+    const temp = `${Math.round(((parseFloat(tempResult) - 273.15) * 1.8) + 32)}F` + '&deg;'; // eslint-disable-line no-useless-concat
     return temp;
   }
 
-  renderWind (result) {
+  renderWind(result) { // eslint-disable-line class-methods-use-this
     const wind = document.querySelector('.wind');
     const windSpeed = result.wind.speed;
-    wind.innerHTML = 'wind: ' + windSpeed + ' km/h';
+    wind.innerHTML = `wind: ${windSpeed} km/h`;
   }
 
-  renderIcon (result) {
+  renderIcon(result) { // eslint-disable-line class-methods-use-this
     const weatherIcon = document.querySelector('.wi-day-sunny');
-    const icon = result.weather[0].icon;
+    const { icon } = result.weather[0];
     weatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}@2x.png">`;
   }
 
-  renderDate (result) {
+  renderDate(result) { // eslint-disable-line class-methods-use-this
     const date = document.querySelector('.day');
     const dateResult = format(fromUnixTime(result.dt), 'EEEE d MMM');
     date.textContent = dateResult;
   }
 }
 
-export default RenderWeather
+export default RenderWeather;

@@ -8,7 +8,7 @@
 .weather {
   display: flex;
   flex-flow: column wrap;
-  box-shadow: 0px 1px 10px 0px #cfcfcf;
+  box-shadow: 0 1px 10px 0 #cfcfcf;
   overflow: hidden;
 }
 
@@ -17,7 +17,7 @@
   flex-flow: row wrap;
   color: white;
   padding: 20px;
-  text-shadow: 1px 1px #F68D2E;
+  text-shadow: 1px 1px #f68d2e;
   background-repeat: no-repeat !important;
   background-size: cover !important;
 }
@@ -57,7 +57,7 @@
   text-align: center;
   font-size: 26px;
   color: #fff;
-  background-color: #F68D2E;
+  background-color: #f68d2e;
 }
 
 .weather .future .day h3 {
